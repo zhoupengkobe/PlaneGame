@@ -35,13 +35,13 @@ public class PlaneGameFrame extends MyFrame{
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			System.out.println("°´ÏÂ£º"+e.getKeyCode());
-			p.move(e);
+			p.addDirection(e);
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
 			System.out.println("ÊÍ·Å£º"+e.getKeyCode());
+			p.minusDirection(e);
 		}
 		
 	}

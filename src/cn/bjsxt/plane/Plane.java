@@ -9,11 +9,26 @@ import cn.bjsxt.util.GameUtil;
 import sun.nio.cs.ext.SimpleEUCEncoder;
 
 public class Plane extends GameObject{
-	boolean left,up,right,down;
-		
+	private boolean left,up,right,down;
+	
+
+	private boolean live = true;	
+	
+	public boolean isLive() {
+		return live;
+	}
+
+	public void setLive(boolean live) {
+		this.live = live;
+	}
+
+	
 	public void draw(Graphics g){
-		g.drawImage(img, (int)x,(int)y, null);
-		move();
+		if (live) {
+			g.drawImage(img, (int)x,(int)y, null);
+			move();
+		}
+		
 	}
 
 	public Plane(String imgpath, double x, double y) {

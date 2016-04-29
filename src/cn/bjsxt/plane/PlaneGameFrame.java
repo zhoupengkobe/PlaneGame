@@ -20,7 +20,7 @@ public class PlaneGameFrame extends MyFrame{
 	
 	Date startTime;
 	Date endTime;
-	
+	Explode bao;
 	public void paint(Graphics g) {
 		g.drawImage(bg, 0, 0, null);
 		p.draw(g);
@@ -33,20 +33,25 @@ public class PlaneGameFrame extends MyFrame{
 			boolean peng = b.getRect().intersects(p.getRect());
 			if (peng) {
 				p.setLive(false); //飞机死掉
-				endTime = new Date();
+				
+				if (bao==null) {
+					endTime = new Date();
+					bao = new Explode(p.x, p.y);
+				}
+				bao.draw(g);
+				break;
 			}
 		}
 		
 		if (!p.isLive()) {
 
 			
-			int period = (int)(endTime.getTime()-startTime.getTime())/1000;
+			int period = (int)((endTime.getTime()-startTime.getTime())/1000);
 			
 			printInfo(g, "时间"+period+"秒", 20, 120, 260, Color.white);
 			
 			switch (period/10) {
 			case 0:
-				break;
 			case 1:
 				printInfo(g, "菜鸟", 50 ,100 ,200 , Color.white);
 				break;
@@ -99,7 +104,7 @@ public class PlaneGameFrame extends MyFrame{
 		addKeyListener(new KeyMoniter());
 		
 		//生成一堆子弹
-		for(int i=0;i<50;i++){
+		for(int i=0;i<25;i++){
 			Bullet b = new Bullet();
 			bulletList.add(b);
 		}
@@ -119,7 +124,6 @@ public class PlaneGameFrame extends MyFrame{
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			System.out.println("释放："+e.getKeyCode());
 			p.minusDirection(e);
 		}
 		

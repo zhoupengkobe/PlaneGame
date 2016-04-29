@@ -8,20 +8,9 @@ import java.awt.event.KeyEvent;
 import cn.bjsxt.util.GameUtil;
 import sun.nio.cs.ext.SimpleEUCEncoder;
 
-public class Plane {
-	Image img;
-	double x,y;
-	int speed=3;
+public class Plane extends GameObject{
 	boolean left,up,right,down;
-	
-	int width,height;
-	
-	public  Rectangle getRect(){
 		
-		return new Rectangle((int)x, (int)y, width, height);
-	}
-	
-	
 	public void draw(Graphics g){
 		g.drawImage(img, (int)x,(int)y, null);
 		move();

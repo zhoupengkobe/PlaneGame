@@ -11,6 +11,7 @@ import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 import cn.bjsxt.util.Constant;
 import cn.bjsxt.util.GameUtil;
 import cn.bjsxt.util.MyFrame;
+import sun.util.logging.resources.logging;
 
 public class PlaneGameFrame extends MyFrame{
 	Image bg = GameUtil.getImage("images/bg.jpg");

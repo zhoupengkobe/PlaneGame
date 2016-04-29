@@ -31,14 +31,14 @@ public class MyFrame  extends Frame {
 private Image offScreenImage = null;  //利用双缓冲技术消除闪烁
 	
 	public void update(Graphics g){
-		if (offScreenImage == null) {
-			offScreenImage = this.createImage(Constant.GAME_WIDTH,Constant.GAME_WIDTH);
+		if (offScreenImage == null) 
+			offScreenImage = this.createImage(Constant.GAME_WIDTH,Constant.GAME_HEIGHT);
 			
 		Graphics gOff = offScreenImage.getGraphics();
 		
 		paint(gOff);
 		g.drawImage(offScreenImage, 0, 0, null);
-		}
+		
 	}
 	
 	

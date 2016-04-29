@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
+import cn.bjsxt.util.Constant;
 import cn.bjsxt.util.GameUtil;
 import cn.bjsxt.util.MyFrame;
 
@@ -25,6 +26,12 @@ public class PlaneGameFrame extends MyFrame{
 		for(int i=0;i<bulletList.size();i++){
 			Bullet b = (Bullet)bulletList.get(i);
 			b.draw(g);
+			
+			//检测跟飞机的碰撞
+			boolean peng = b.getRect().intersects(p.getRect());
+			if (peng) {
+				System.out.println("###########################peng");
+			}
 		}
 	}
 	
@@ -44,6 +51,8 @@ public class PlaneGameFrame extends MyFrame{
 		}
 	}
 	
+	
+
 	//定义为内部类,可以方便的使用外部类的属性
 	class KeyMoniter extends KeyAdapter{
 

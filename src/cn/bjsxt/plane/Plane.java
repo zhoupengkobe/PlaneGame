@@ -2,6 +2,7 @@ package cn.bjsxt.plane;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 import cn.bjsxt.util.GameUtil;
@@ -13,6 +14,14 @@ public class Plane {
 	int speed=3;
 	boolean left,up,right,down;
 	
+	int width,height;
+	
+	public  Rectangle getRect(){
+		
+		return new Rectangle((int)x, (int)y, width, height);
+	}
+	
+	
 	public void draw(Graphics g){
 		g.drawImage(img, (int)x,(int)y, null);
 		move();
@@ -21,11 +30,14 @@ public class Plane {
 	public Plane(String imgpath, double x, double y) {
 		super();
 		this.img = GameUtil.getImage(imgpath);
+		this.width = img.getWidth(null);
+		this.height = img.getHeight(null);
 		this.x = x;
 		this.y = y;
 	}
 
 	public Plane() {
+		
 	}
 	
 	public void move(){

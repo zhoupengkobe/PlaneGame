@@ -10,7 +10,7 @@ import sun.nio.cs.ext.SimpleEUCEncoder;
 public class Plane {
 	Image img;
 	double x,y;
-	int speed=10;
+	int speed=3;
 	boolean left,up,right,down;
 	
 	public void draw(Graphics g){
